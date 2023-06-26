@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css"
 
 function MainNavigation() {
+
+  function LogoutUser() {
+    localStorage.removeItem("currUser")
+  }
+
   return (
-    
     <header className={classes.header}>
       
       <nav>
@@ -19,7 +23,7 @@ function MainNavigation() {
             <Link to="/profile">Profile</Link>
           </li>
           <li className={classes.logout}>
-            <Link to="/login" >Logout</Link>
+            <Link onClick={LogoutUser} to="/login">Logout</Link>
           </li>
         </ul>
       </nav>

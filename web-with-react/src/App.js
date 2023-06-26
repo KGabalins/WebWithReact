@@ -6,19 +6,52 @@ import LoginPage from "./components/pages/LoginPage";
 import ProfilePage from "./components/pages/ProfilePage";
 import YourMoviesPage from "./components/pages/YourMoviesPage";
 import Layout from "./components/layouts/Layout";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import { IsLoggedIn } from "./components/privateRoute/PrivateRoute";
 
 function App() {
   return (
-    <div>
+    <>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <IsLoggedIn>
+              <LoginPage />{" "}
+            </IsLoggedIn>
+          }
+        />
+      </Routes>
+
       <Layout>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/yourMovies" element={<YourMoviesPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/yourMovies"
+            element={
+              <PrivateRoute>
+                <YourMoviesPage />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Layout>
-    </div>
+    </>
   );
 }
 

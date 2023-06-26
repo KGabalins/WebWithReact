@@ -1,7 +1,13 @@
+import LoginForm from "../loginComp/LoginForm";
+import RegisterForm from "../loginComp/RegisterForm";
+
 function LoginPage() {
-  return(
-    <div>Hello this is login page</div>
-  )
+  return (
+    <>
+      <LoginForm />
+      <RegisterForm />
+    </>
+  );
 }
 
-export default LoginPage
+export default LoginPage;

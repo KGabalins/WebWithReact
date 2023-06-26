@@ -1,15 +1,13 @@
-import MainNavigation from "./MainNavigation"
-
-let isLoggedIn = true
+import MainNavigation from "./MainNavigation";
 
 function Layout(props) {
-  return(
-    <div>
+  return (
+    <>
       <h1 className="page-title">Movie rental</h1>
-      {isLoggedIn && <MainNavigation />}
+      <MainNavigation />
       <main>{props.children}</main>
-    </div>
-  )
+    </>
+  );
 }
 
-export default Layout
+export default Layout;
